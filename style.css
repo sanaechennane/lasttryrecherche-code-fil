@@ -1,0 +1,311 @@
+/* ===========================
+   STYLE.CSS - Localisateur de Fils
+   Style industriel, fond bleu foncé
+   =========================== */
+
+/* --- Reset et base --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d1b2a;
+  color: #e0e6f0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  min-height: 100vh;
+  padding: 16px;
+}
+
+/* --- En-tête --- */
+header {
+  text-align: center;
+  padding: 24px 16px 20px;
+  border-bottom: 2px solid #1e3a5f;
+  margin-bottom: 24px;
+}
+
+header .logo-ligne {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+header .icone {
+  font-size: 32px;
+}
+
+header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #4fc3f7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+header p.sous-titre {
+  font-size: 13px;
+  color: #7a9bb5;
+  margin-top: 4px;
+}
+
+/* --- Zone de recherche --- */
+.zone-recherche {
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+.champ-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.champ-wrapper .icone-recherche {
+  position: absolute;
+  left: 14px;
+  font-size: 20px;
+  color: #4fc3f7;
+  pointer-events: none;
+}
+
+#champRecherche {
+  width: 100%;
+  padding: 16px 16px 16px 48px;
+  font-size: 18px;
+  background-color: #112240;
+  border: 2px solid #1e3a5f;
+  border-radius: 10px;
+  color: #e0e6f0;
+  outline: none;
+  transition: border-color 0.2s;
+  /* Agrandir le clavier sur mobile */
+  -webkit-appearance: none;
+}
+
+#champRecherche::placeholder {
+  color: #4a6580;
+  font-size: 15px;
+}
+
+#champRecherche:focus {
+  border-color: #4fc3f7;
+  background-color: #0f1e35;
+}
+
+.btn-effacer {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #4a6580;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: none; /* caché par défaut, montré par JS */
+  transition: color 0.2s;
+}
+
+.btn-effacer:hover {
+  color: #e0e6f0;
+}
+
+/* --- Compteur de résultats --- */
+#compteur {
+  text-align: center;
+  font-size: 13px;
+  color: #7a9bb5;
+  margin-top: 10px;
+  min-height: 18px;
+}
+
+/* --- Zone de résultats --- */
+#zoneResultats {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- Message d'état (vide / introuvable) --- */
+.message-etat {
+  text-align: center;
+  padding: 48px 20px;
+  color: #4a6580;
+}
+
+.message-etat .grande-icone {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.message-etat p {
+  font-size: 16px;
+}
+
+.message-etat p.hint {
+  font-size: 13px;
+  margin-top: 8px;
+  color: #3a5070;
+}
+
+/* --- Carte de résultat --- */
+.carte {
+  background-color: #112240;
+  border: 1px solid #1e3a5f;
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  transition: border-color 0.2s, transform 0.1s;
+}
+
+.carte:active {
+  transform: scale(0.99);
+}
+
+.carte:hover {
+  border-color: #4fc3f7;
+}
+
+/* Ligne du haut : code fil + badge torsade */
+.carte-entete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.code-fil {
+  font-size: 22px;
+  font-weight: 700;
+  color: #4fc3f7;
+  letter-spacing: 0.5px;
+}
+
+.badge-torsade {
+  background-color: #1a3a5c;
+  border: 1px solid #2a5a8c;
+  color: #7ec8e3;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Grille des infos */
+.carte-infos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.info-bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #4a6580;
+  font-weight: 600;
+}
+
+.info-valeur {
+  font-size: 16px;
+  font-weight: 600;
+  color: #c5d8ea;
+}
+
+/* Couleur spéciale pour Rack et Emplacement */
+.info-valeur.rack-valeur {
+  color: #ffd54f;
+  font-size: 20px;
+}
+
+.info-valeur.emplacement-valeur {
+  color: #81c784;
+  font-size: 20px;
+}
+
+/* Pastille couleur du fil */
+.pastille-couleur {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rond-couleur {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+
+/* --- Séparateur de groupe torsade --- */
+.titre-groupe {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 10px;
+  padding: 10px 14px;
+  background-color: #0a1628;
+  border-left: 4px solid #4fc3f7;
+  border-radius: 0 8px 8px 0;
+}
+
+.titre-groupe .icone-groupe {
+  font-size: 18px;
+}
+
+.titre-groupe span {
+  font-size: 14px;
+  color: #4fc3f7;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* --- Pied de page --- */
+footer {
+  text-align: center;
+  padding: 24px 16px 12px;
+  color: #2a4060;
+  font-size: 12px;
+  margin-top: 32px;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 18px;
+  }
+
+  #champRecherche {
+    font-size: 16px;
+    padding: 14px 14px 14px 44px;
+  }
+
+  .code-fil {
+    font-size: 20px;
+  }
+
+  .carte-infos {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .info-valeur.rack-valeur,
+  .info-valeur.emplacement-valeur {
+    font-size: 18px;
+  }
+}
