@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Indispensable pour mobile : adapte la largeur à l'écran du téléphone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Localisateur de Fils — Magasin</title>
+
+  <!-- Icône dans l'onglet du navigateur -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔌</text></svg>" />
+
+  <!-- Notre fichier de styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ============================
+       EN-TÊTE DE L'APPLICATION
+       ============================ -->
+  <header>
+    <div class="logo-ligne">
+      <span class="icone">🔌</span>
+      <h1>Localisateur de Fils</h1>
+    </div>
+    <p class="sous-titre">Magasin — Câblage Automobile</p>
+  </header>
+
+  <!-- ============================
+       ZONE DE RECHERCHE
+       ============================ -->
+  <div class="zone-recherche">
+    <div class="champ-wrapper">
+      <!-- Icône loupe à gauche -->
+      <span class="icone-recherche">🔎</span>
+
+      <!-- Champ de saisie principal -->
+      <input
+        type="text"
+        id="champRecherche"
+        placeholder="Code fil ou torsade..."
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="characters"
+        spellcheck="false"
+      />
+
+      <!-- Bouton pour effacer la recherche -->
+      <button id="btnEffacer" class="btn-effacer" title="Effacer">✕</button>
+    </div>
+
+    <!-- Compteur de résultats -->
+    <p id="compteur"></p>
+  </div>
+
+  <!-- ============================
+       ZONE DES RÉSULTATS
+       (remplie dynamiquement par app.js)
+       ============================ -->
+  <div id="zoneResultats">
+    <!-- Le contenu ici est généré par JavaScript -->
+  </div>
+
+  <!-- ============================
+       PIED DE PAGE
+       ============================ -->
+  <footer>
+    <p>COFAT — Usage interne · Magasin Fils</p>
+  </footer>
+
+  <!-- Notre fichier JavaScript (chargé en dernier pour que le HTML soit prêt) -->
+  <script src="app.js"></script>
+
+</body>
+</html>
